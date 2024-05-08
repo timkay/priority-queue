@@ -28,14 +28,11 @@ class PriorityQueue():
                         kv, lv, rv = q[k], q[l] if l <= n else -inf, q[r] if r <= n else -inf
                         if lv > kv:
                                 if rv > lv:
-                                        q[r], q[k] = q[k], q[r]
-                                        k = r
+                                        q[r], q[k], k = q[k], q[r], r
                                 else:
-                                        q[l], q[k] = q[k], q[l]
-                                        k = l
+                                        q[l], q[k], k = q[k], q[l], l
                         elif rv > kv:
-                                q[r], q[k] = q[k], q[r]
-                                k = r
+                                q[r], q[k], k = q[k], q[r], r
                         else:
                                 break
                 return result
