@@ -23,9 +23,12 @@ class PriorityQueue():
                 n = self.len()
                 while True:
                         l, r = k * 2 + 0, k * 2 + 1
-                        if l <= n and q[l] > q[k]:
+                        kv = q[k]
+                        lv = q[l] if l <= n else -math.inf
+                        rv = q[r] if r <= n else -math.inf
+                        if lv > kv:
                                 # left > parent
-                                if r <= n and q[r] > q[l]:
+                                if rv > lv:
                                         # right > both
                                         # parent <-> right
                                         q[k], q[r] = q[r], q[k]
@@ -34,7 +37,7 @@ class PriorityQueue():
                                         # left <-> parent
                                         q[l], q[k] = q[k], q[l]
                                         k = l
-                        elif r <= n and q[r] > q[k]:
+                        elif rv > kv:
                                 # right <-> parent
                                 q[r], q[k] = q[k], q[r]
                                 k = r
