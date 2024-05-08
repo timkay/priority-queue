@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+from math import inf
+
 class PriorityQueue():
         '''A priority queue that keeps the biggest element on top'''
         def __init__(self):
@@ -24,8 +26,8 @@ class PriorityQueue():
                 while True:
                         l, r = k * 2 + 0, k * 2 + 1
                         kv = q[k]
-                        lv = q[l] if l <= n else -math.inf
-                        rv = q[r] if r <= n else -math.inf
+                        lv = q[l] if l <= n else -inf
+                        rv = q[r] if r <= n else -inf
                         if lv > kv:
                                 # left > parent
                                 if rv > lv:
